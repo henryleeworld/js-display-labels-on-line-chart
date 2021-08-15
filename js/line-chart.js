@@ -192,9 +192,6 @@ var config = {
         animation: {
             onComplete: done
         },
-        legend: {
-            position: 'bottom',
-        },
         plugins: {
             datalabels: {
                 backgroundColor: function(context) {
@@ -207,7 +204,10 @@ var config = {
                 },
                 formatter: Math.round,
                 // padding: 6
-            }
+            },
+            legend: {
+                position: 'bottom',
+            },
         },
         // aspectRatio: 5 / 3,
         layout: {
@@ -243,7 +243,7 @@ var config = {
 };
 
 window.onload = function() {
-    Chart.plugins.register(ChartDataLabels);
+    Chart.register(ChartDataLabels);
     var ctx = document.getElementById('chart-area').getContext('2d');
     window.lineChart = new Chart(ctx, config);
 };
