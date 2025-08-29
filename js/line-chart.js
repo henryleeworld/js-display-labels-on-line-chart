@@ -197,25 +197,20 @@ var config = {
                 backgroundColor: function(context) {
                     return context.dataset.backgroundColor;
                 },
-                // borderRadius: 4,
                 color: 'white',
                 font: {
                     weight: 'bold'
                 },
-                formatter: Math.round,
-                // padding: 6
+                formatter: Math.round
             },
             legend: {
                 position: 'bottom',
             },
+            tooltip: {}
         },
-        // aspectRatio: 5 / 3,
         layout: {
             padding: {
                 top: 32,
-                // right: 16,
-                // bottom: 16,
-                // left: 8
             }
         },
         elements: {
@@ -224,20 +219,20 @@ var config = {
             }
         },
         scales: {
-            xAxes: [{
+            x: {
                 display: true,
-                scaleLabel: {
+                title: {
                     display: true,
-                    labelString: '月份'
+                    text: '月份'
                 }
-            }],
-            yAxes: [{
+            },
+            y: {
                 display: true,
-                scaleLabel: {
+                title: {
                     display: true,
-                    labelString: '百分比'
+                    text: '百分比'
                 }
-            }]
+            }
         }
     }
 };
@@ -251,4 +246,6 @@ window.onload = function() {
 function done() {
     var url = window.lineChart.toBase64Image();
     document.getElementById("chart-url").src = url;
+    document.getElementById('chart-area').style.display = 'none';
+    document.getElementById('chart-url').classList.remove('d-none');
 }
